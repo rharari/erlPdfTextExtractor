@@ -112,7 +112,7 @@ cutBTET2(Z, [H1,H2|T]) -> iolist_to_binary([binary:part(Z, H1 + 2, H2 - H1 - 2)]
 cutBTET2(_, _) -> [].
 
 uncompress(Z) ->
-	try zlib:uncompress(Z) of Y -> Y
+	try zlib:uncompress(Z) 
 	catch error:data_error -> [] % ie: DCTDecode indicates a JPEG, etc... - discard it
 	end.
 
